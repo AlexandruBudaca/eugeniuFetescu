@@ -1,42 +1,200 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { useState, useEffect } from "react"
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  makeStyles,
+  IconButton,
+  Drawer,
+  Link,
+  MenuItem,
+  Container,
+} from "@material-ui/core"
+import MenuIcon from "@material-ui/icons/Menu"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
+import { Link as RouterLink } from "gatsby"
+
+import "./App.scss"
+
+const headersData = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
+  },
+  {
+    label: "How to order",
+    href: "/howToOrder",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+]
+
+const useStyles = makeStyles(() => ({
+  header: {
+    backgroundColor: "transparent",
+    paddingLeft: 70,
+    paddingRight: 70,
+    "@media (max-width: 900px)": {
+      paddingLeft: 0,
+      backgroundColor: "white",
+    },
+    height: 60,
+  },
+  logo: {
+    fontFamily: "Work Sans, sans-serif",
+    fontWeight: 600,
+    color: "grey",
+    textAlign: "left",
+  },
+  menuButton: {
+    fontFamily: "Open Sans, sans-serif",
+    fontWeight: 300,
+    size: "18px",
+    marginLeft: "38px",
+    color: "grey",
+    textDecoration: "none",
+  },
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  drawerContainer: {
+    padding: "20px 30px",
+  },
+}))
+
+const Header = () => {
+  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles()
+
+  const [state, setState] = useState({
+    mobileView: false,
+    drawerOpen: false,
+  })
+
+  const { mobileView, drawerOpen } = state
+
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState(prevState => ({ ...prevState, mobileView: true }))
+        : setState(prevState => ({ ...prevState, mobileView: false }))
+    }
+
+    setResponsiveness()
+
+    window.addEventListener("resize", () => setResponsiveness())
+  }, [])
+
+  const displayDesktop = () => {
+    return (
+      <Toolbar className={toolbar}>
+        {femmecubatorLogo}
+        <div>{getMenuButtons()}</div>
+      </Toolbar>
+    )
+  }
+
+  const displayMobile = () => {
+    const handleDrawerOpen = () =>
+      setState(prevState => ({ ...prevState, drawerOpen: true }))
+    const handleDrawerClose = () =>
+      setState(prevState => ({ ...prevState, drawerOpen: false }))
+
+    return (
+      <Toolbar>
+        <IconButton
+          {...{
+            edge: "start",
+            color: "grey",
+            "aria-label": "menu",
+            "aria-haspopup": "true",
+            onClick: handleDrawerOpen,
           }}
         >
-          {siteTitle}
+          <MenuIcon />
+        </IconButton>
+
+        <Drawer
+          {...{
+            anchor: "left",
+            open: drawerOpen,
+            onClose: handleDrawerClose,
+          }}
+        >
+          <div className={drawerContainer}>{getDrawerChoices()}</div>
+        </Drawer>
+
+        <div>{femmecubatorLogo}</div>
+      </Toolbar>
+    )
+  }
+
+  const getDrawerChoices = () => {
+    return headersData.map(({ label, href }) => {
+      return (
+        <Link
+          {...{
+            component: RouterLink,
+            to: href,
+            color: "inherit",
+            style: { textDecoration: "none" },
+            key: label,
+          }}
+        >
+          <MenuItem>{label}</MenuItem>
         </Link>
-      </h1>
-    </div>
-  </header>
-)
+      )
+    })
+  }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  const femmecubatorLogo = (
+    <RouterLink to="/" style={{ textDecoration: "none" }}>
+      <Typography variant="h6" component="h1" className={logo}>
+        Eugeniu Fetescu
+      </Typography>
+    </RouterLink>
+  )
 
-Header.defaultProps = {
-  siteTitle: ``,
+  const getMenuButtons = () => {
+    return headersData.map(({ label, href }) => {
+      return (
+        <RouterLink
+          {...{
+            key: label,
+            color: "inherit",
+            to: href,
+            className: menuButton,
+          }}
+          activeStyle={{
+            color: "black",
+            fontWeight: 700,
+          }}
+        >
+          {label}
+        </RouterLink>
+      )
+    })
+  }
+
+  return (
+    <header>
+      <Container maxWidth="lg">
+        <AppBar className={header} style={{ boxShadow: "none" }}>
+          {mobileView ? displayMobile() : displayDesktop()}
+        </AppBar>
+      </Container>
+    </header>
+  )
 }
 
 export default Header

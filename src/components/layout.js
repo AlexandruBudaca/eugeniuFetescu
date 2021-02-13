@@ -1,18 +1,55 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import { makeStyles } from "@material-ui/core"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import InstagramIcon from "@material-ui/icons/Instagram"
+import YouTubeIcon from "@material-ui/icons/YouTube"
+
+import Header from "./Header"
+import "./App.scss"
 import "./layout.css"
 
+const useStyles = makeStyles(theme => ({
+  footer: {
+    marginTop: "2rem",
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    flexWrap: "wrap",
+  },
+  footerDate: {
+    marginLeft: 80,
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+  },
+  footerLinks: {
+    marginRight: 80,
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    display: "flex",
+    justifyContent: "center",
+  },
+  footerA: {
+    padding: "0px 10px",
+    color: "grey",
+    "&:hover": {
+      color: "black",
+    },
+  },
+}))
+
 const Layout = ({ children }) => {
+  const { footerDate, footer, footerLinks, footerA } = useStyles()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,23 +62,48 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
+      <div>
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+
+        <main
           style={{
-            marginTop: `2rem`,
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          {children}
+        </main>
+        <footer className={footer}>
+          <div className={footerDate}>
+            © {new Date().getFullYear()} Eugeniu Fetescu
+          </div>
+
+          <div className={footerLinks}>
+            {window.innerWidth < 900 ? "" : <p>Follow me on</p>}
+
+            <div>
+              <a
+                href="https://material-ui.com/components/material-icons/#material-icons"
+                className={footerA}
+              >
+                <FacebookIcon />
+              </a>
+              <a
+                href="https://material-ui.com/components/material-icons/#material-icons"
+                className={footerA}
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="https://material-ui.com/components/material-icons/#material-icons"
+                className={footerA}
+              >
+                <YouTubeIcon />
+              </a>
+            </div>
+          </div>
         </footer>
       </div>
     </>
