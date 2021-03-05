@@ -156,11 +156,11 @@ const Header = () => {
   }
 
   const Logo = (
-    <RouterLink to="/" style={{ textDecoration: "none" }}>
+    <Link to="/" style={{ textDecoration: "none" }}>
       <Typography variant="h6" component="h1" className={logo}>
         Eugeniu Fetescu
       </Typography>
-    </RouterLink>
+    </Link>
   )
 
   const getMenuButtons = () => {
