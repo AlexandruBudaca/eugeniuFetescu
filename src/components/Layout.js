@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import { makeStyles } from "@material-ui/core"
 import FacebookIcon from "@material-ui/icons/Facebook"
@@ -49,20 +49,20 @@ const useStyles = makeStyles(theme => ({
 
 const Layout = ({ children }) => {
   const { footerDate, footer, footerLinks, footerA } = useStyles()
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
   return (
     <>
       <div>
-        <Header siteTitle={`Title`} />
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
 
         <main
           style={{
