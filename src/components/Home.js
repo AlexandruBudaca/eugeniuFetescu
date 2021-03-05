@@ -1,8 +1,7 @@
 import React from "react"
-import Image from "./Image"
+import Image from "./HomeImages"
 import { Link } from "gatsby"
 import { makeStyles, Container, Typography } from "@material-ui/core"
-import "./App.scss"
 
 const Home = () => {
   const useStyles = makeStyles(() => ({

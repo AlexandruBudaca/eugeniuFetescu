@@ -14,8 +14,6 @@ import MenuIcon from "@material-ui/icons/Menu"
 
 import { Link as RouterLink } from "gatsby"
 
-import "./App.scss"
-
 const headersData = [
   {
     label: "Home",
@@ -41,7 +39,7 @@ const headersData = [
 
 const useStyles = makeStyles(() => ({
   header: {
-    backgroundColor: "transparent",
+    backgroundColor: "white",
     paddingLeft: 70,
     paddingRight: 70,
     "@media (max-width: 900px)": {
@@ -98,7 +96,7 @@ const Header = () => {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        {femmecubatorLogo}
+        {Logo}
         <div>{getMenuButtons()}</div>
       </Toolbar>
     )
@@ -134,7 +132,7 @@ const Header = () => {
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
 
-        <div>{femmecubatorLogo}</div>
+        <div>{Logo}</div>
       </Toolbar>
     )
   }
@@ -157,7 +155,7 @@ const Header = () => {
     })
   }
 
-  const femmecubatorLogo = (
+  const Logo = (
     <RouterLink to="/" style={{ textDecoration: "none" }}>
       <Typography variant="h6" component="h1" className={logo}>
         Eugeniu Fetescu

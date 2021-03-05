@@ -91,7 +91,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: "10rem",
+    paddingTop: "6rem",
     wrap: "wrap",
     flexDirection: "column",
   },
@@ -163,7 +163,7 @@ const Gallery = () => {
                 <img src={image} alt="some" />
               </DialogContent>
               <DialogActions>
-                <Button autoFocus onClick={handleClose} color="primary">
+                <Button onClick={handleClose} color="primary">
                   Close
                 </Button>
               </DialogActions>

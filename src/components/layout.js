@@ -8,7 +8,6 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import YouTubeIcon from "@material-ui/icons/YouTube"
 
 import Header from "./Header"
-import "./App.scss"
 import "./layout.css"
 
 const useStyles = makeStyles(theme => ({

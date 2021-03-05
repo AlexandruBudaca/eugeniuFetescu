@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     wrap: "wrap",
-    paddingTop: "3rem",
+    paddingTop: "6rem",
     [theme.breakpoints.down("sm")]: {
       display: "flex",
       height: "100%",
@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       height: 400,
     },
+    borderRadius: "100%",
   },
 }))
 

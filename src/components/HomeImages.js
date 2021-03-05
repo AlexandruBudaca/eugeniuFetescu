@@ -1,9 +1,30 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import "./App.scss"
+import { makeStyles } from "@material-ui/core"
+
+const useStyles = makeStyles(() => ({
+  imageDown: {
+    width: "170px",
+    height: "450px",
+    marginRight: "50px",
+    marginBottom: "20px",
+    "&:hover": { transform: "translateY(40px)" },
+  },
+  imageUp: {
+    width: "170px",
+    height: "450px",
+    marginRight: "50px",
+    marginTop: "40px",
+    "&:hover": { transform: "translateY(-40px)" },
+  },
+  imagesWrap: {
+    display: "flex",
+  },
+}))
 
 const Image = () => {
+  const { imageDown, imageUp, imagesWrap } = useStyles()
   const data = useStaticQuery(graphql`
     query {
       allFile {
@@ -20,15 +41,11 @@ const Image = () => {
     }
   `)
 
-  // if (!data?.placeholderImage?.childImageSharp?.fluid) {
-  //   return <div>Picture not found</div>
-  // }
-
   return (
     <>
-      <div className="ima">
+      <div className={imagesWrap}>
         {data.allFile.edges.map((edge, index) => (
-          <div className={index % 2 === 1 ? "pic" : "pic2"}>
+          <div className={index % 2 === 1 ? imageDown : imageUp}>
             <Img fluid={edge.node.childImageSharp.fluid} />
           </div>
         ))}
