@@ -1,6 +1,6 @@
 import React from "react"
 import { Container, makeStyles } from "@material-ui/core"
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 import Seo from "../components/Seo"
 import pic from "../images/meAbout.jpg"
 
