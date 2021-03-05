@@ -36,11 +36,7 @@ const Home = () => {
   return (
     <Container maxWidth="lg" className={homeContainer}>
       <Typography component="div" className={homeWrap}>
-        {typeof window !== "undefined" && window.innerWidth < 900 ? (
-          <p>Mobile</p>
-        ) : (
-          <Image />
-        )}
+        <Image />
         <div style={{ paddingTop: "3rem" }}>
           <Link to="/howToOrder" className={homeBtn}>
             How to order

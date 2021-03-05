@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { makeStyles } from "@material-ui/core"
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   imageDown: {
     width: "170px",
     height: "450px",
@@ -20,6 +20,9 @@ const useStyles = makeStyles(() => ({
   },
   imagesWrap: {
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 }))
 
