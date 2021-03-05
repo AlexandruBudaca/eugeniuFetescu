@@ -80,7 +80,11 @@ const Layout = ({ children }) => {
           </div>
 
           <div className={footerLinks}>
-            {window.innerWidth < 900 ? "" : <p>Follow me on</p>}
+            {typeof window !== "undefined" && window.innerWidth < 900 ? (
+              ""
+            ) : (
+              <p>Follow me on</p>
+            )}
 
             <div>
               <a
