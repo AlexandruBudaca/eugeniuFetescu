@@ -83,7 +83,7 @@ const Header = () => {
 
   useEffect(() => {
     const setResponsiveness = () => {
-      return window.innerWidth < 900
+      return typeof window !== "undefined" && window.innerWidth < 900
         ? setState(prevState => ({ ...prevState, mobileView: true }))
         : setState(prevState => ({ ...prevState, mobileView: false }))
     }
