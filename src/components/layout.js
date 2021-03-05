@@ -88,8 +88,10 @@ const Layout = ({ children }) => {
 
             <div>
               <a
-                href="https://material-ui.com/components/material-icons/#material-icons"
+                href="https://www.facebook.com/permalink.php?story_fbid=258638855936227&id=112272913906156"
                 className={footerA}
+                target="_blank"
+                rel="noreferrer"
               >
                 <FacebookIcon />
               </a>
