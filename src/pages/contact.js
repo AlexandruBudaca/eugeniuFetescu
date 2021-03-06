@@ -26,7 +26,7 @@ const Contact = () => {
     e.preventDefault()
 
     emailjs
-      .sendForm("service_h2t04va", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
       .then(
         result => {
           console.log(result.text)
