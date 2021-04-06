@@ -70,6 +70,7 @@ const Layout = ({ children }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            flexDirection: "column",
           }}
         >
           {children}

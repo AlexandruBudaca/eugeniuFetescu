@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     height: "90vh",
     display: "flex",
     justifyContent: "center",
-    // alignItems: "center",
     paddingTop: "10rem",
     wrap: "wrap",
   },
@@ -75,6 +74,18 @@ const HowToOrder = () => {
             <TabPanel value="3">Item Three</TabPanel>
           </TabContext>
         </div>
+      </Container>
+      <Container
+        style={{
+          position: "absolute",
+          bottom: 200,
+          height: 100,
+          textAlign: "center",
+          backgroundColor: "grey",
+          color: "white",
+        }}
+      >
+        Hello
       </Container>
     </Layout>
   )

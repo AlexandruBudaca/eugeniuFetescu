@@ -30,7 +30,12 @@ const Image = () => {
   const { imageDown, imageUp, imagesWrap } = useStyles()
   const data = useStaticQuery(graphql`
     query {
-      allFile {
+      allFile(
+        filter: {
+          extension: { regex: "/(jpg)|(jpeg)|(png)/" }
+          relativeDirectory: { eq: "HomePageImages" }
+        }
+      ) {
         edges {
           node {
             childImageSharp {
@@ -48,7 +53,7 @@ const Image = () => {
     <>
       <div className={imagesWrap}>
         {data.allFile.edges.map((edge, index) => (
-          <div className={index % 2 === 1 ? imageDown : imageUp}>
+          <div className={index % 2 === 1 ? imageDown : imageUp} key={index}>
             <Img fluid={edge.node.childImageSharp.fluid} />
           </div>
         ))}
