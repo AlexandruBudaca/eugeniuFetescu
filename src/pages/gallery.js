@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/Seo"
@@ -6,43 +6,14 @@ import {
   makeStyles,
   Container,
   Grid,
-  Button,
   Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  useMediaQuery,
+  AppBar,
+  Toolbar,
+  IconButton,
 } from "@material-ui/core"
-import { useTheme } from "@material-ui/core/styles"
 import Img from "gatsby-image"
+import CloseIcon from "@material-ui/icons/Close"
 
-// const tileData = [
-//   {
-//     img: image,
-//     title: "Eugeniu Fetescu",
-//     author: "author",
-//   },
-//   {
-//     img: image,
-//     title: "Alexandru Budaca",
-//     author: "author",
-//   },
-//   {
-//     img: image,
-//     title: "GiGi",
-//     author: "author",
-//   },
-//   {
-//     img: image,
-//     title: "Vasile",
-//     author: "author",
-//   },
-//   {
-//     img: image,
-//     title: "Emilia",
-//     author: "author",
-//   },
-// ]
 const useStyles = makeStyles(theme => ({
   galleryWrap: {
     height: "100%",
@@ -53,27 +24,37 @@ const useStyles = makeStyles(theme => ({
     wrap: "wrap",
     flexDirection: "column",
   },
+  appBar: {
+    position: "relative",
+    backgroundColor: "grey",
+  },
+  imageDialog: {
+    width: "50%",
+    left: "25%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+  },
 }))
 
 const Gallery = () => {
-  const { galleryWrap } = useStyles()
-  const [open, setOpen] = useState(false)
-  const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"))
+  const { galleryWrap, appBar, imageDialog } = useStyles()
+  const [idImage, setIdImage] = useState(null)
 
-  const handleClickOpen = () => {
-    setOpen(true)
+  const handleClickOpen = imageId => {
+    setIdImage(imageId)
   }
 
   const handleClose = () => {
-    setOpen(false)
+    setIdImage(null)
   }
+
   const data = useStaticQuery(graphql`
     query {
       allFile(
         filter: {
           extension: { regex: "/(jpg)|(jpeg)|(png)/" }
-          relativeDirectory: { eq: "Main images" }
+          relativeDirectory: { eq: "MainImages" }
         }
       ) {
         edges {
@@ -83,17 +64,20 @@ const Gallery = () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            id
           }
         }
       }
     }
   `)
-
+  const image = data.allFile.edges.filter(art =>
+    art.node.id === idImage ? art.node.childImageSharp.fluid : ""
+  )
   return (
     <Layout>
       <Seo title="Gallery" />
       <Container maxWidth="lg">
-        <Container className={galleryWrap} component="div">
+        <Grid className={galleryWrap} component="div">
           <h3>Gallery</h3>
           <Grid
             container
@@ -103,10 +87,17 @@ const Gallery = () => {
             alignItems="center"
           >
             {data.allFile.edges.map((art, index) => (
-              <>
-                <Grid item xs={12} lg={3} sm={6} key={index} align="center">
+              <Fragment key={index}>
+                <Grid
+                  item
+                  xs={12}
+                  lg={3}
+                  sm={6}
+                  key={art.node.id}
+                  align="center"
+                >
                   <div
-                    onClick={handleClickOpen}
+                    onClick={() => handleClickOpen(art.node.id)}
                     style={{ cursor: "pointer" }}
                     role="button"
                     aria-hidden="true"
@@ -117,25 +108,37 @@ const Gallery = () => {
                     />
                   </div>
                 </Grid>
-                <Dialog
-                  fullScreen={fullScreen}
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="responsive-dialog-title"
-                >
-                  <DialogContent style={{ width: 600 }}>
-                    <Img fluid={art.node.childImageSharp.fluid} />
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                      Close
-                    </Button>
-                  </DialogActions>
-                </Dialog>
-              </>
+              </Fragment>
             ))}
           </Grid>
-        </Container>
+        </Grid>
+        <Dialog
+          fullScreen
+          open={idImage !== null}
+          onClose={handleClose}
+          aria-labelledby="responsive-dialog-title"
+        >
+          <AppBar className={appBar}>
+            <Toolbar>
+              <IconButton
+                edge="start"
+                color="inherit"
+                onClick={handleClose}
+                aria-label="close"
+              >
+                <CloseIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+          <div>
+            {image.length >= 0 && image[0] ? (
+              <Img
+                fluid={image[0].node.childImageSharp.fluid}
+                className={imageDialog}
+              />
+            ) : null}
+          </div>
+        </Dialog>
       </Container>
     </Layout>
   )

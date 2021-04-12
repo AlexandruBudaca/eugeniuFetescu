@@ -78,9 +78,10 @@ const Header = () => {
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
+    loading: true,
   })
 
-  const { mobileView, drawerOpen } = state
+  const { mobileView, drawerOpen, loading } = state
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -88,10 +89,9 @@ const Header = () => {
         ? setState(prevState => ({ ...prevState, mobileView: true }))
         : setState(prevState => ({ ...prevState, mobileView: false }))
     }
-
     setResponsiveness()
-
     window.addEventListener("resize", () => setResponsiveness())
+    setState(prevState => ({ ...prevState, loading: false }))
   }, [])
 
   const displayDesktop = () => {
@@ -188,9 +188,13 @@ const Header = () => {
   return (
     <header>
       <Container maxWidth="lg">
-        <AppBar className={header} style={{ boxShadow: "none" }}>
-          {mobileView ? displayMobile() : displayDesktop()}
-        </AppBar>
+        {!loading ? (
+          <AppBar className={header} style={{ boxShadow: "none" }}>
+            {mobileView ? displayMobile() : displayDesktop()}
+          </AppBar>
+        ) : (
+          <p>loading...</p>
+        )}
       </Container>
     </header>
   )

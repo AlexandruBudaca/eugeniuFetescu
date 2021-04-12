@@ -77,15 +77,12 @@ const HowToOrder = () => {
       </Container>
       <Container
         style={{
-          position: "absolute",
-          bottom: 200,
-          height: 100,
           textAlign: "center",
           backgroundColor: "grey",
           color: "white",
         }}
       >
-        Hello
+        Scriem aici ce trebuie mai incolo
       </Container>
     </Layout>
   )
