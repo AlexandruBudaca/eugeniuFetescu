@@ -25,14 +25,21 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
   },
   appBar: {
-    position: "relative",
-    backgroundColor: "grey",
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "grey",
+    boxShadow: "none",
   },
   imageDialog: {
-    width: "50%",
+    marginTop: 60,
+    maxWidth: "50%",
+    maxHeight: "90vh",
     left: "25%",
     [theme.breakpoints.down("sm")]: {
-      width: "100%",
+      marginTop: 0,
+      maxWidth: "100%",
+      maxHeight: "100vh",
+      left: 0,
     },
   },
 }))

@@ -9,22 +9,29 @@ const useStyles = makeStyles(theme => ({
     height: "90vh",
     paddingTop: "3rem",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-even",
     alignItems: "center",
     flexDirection: "row",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "unset",
     },
   },
   contactForm: {
     display: "flex",
     flexDirection: "column",
-    width: 400,
+  },
+  address: {
+    flexBasis: "100%",
+    [theme.breakpoints.down("sm")]: {
+      flexBasis: 0,
+    },
   },
 }))
 
 const Contact = () => {
-  const { contactWrap, contactForm } = useStyles()
+  const { contactWrap, contactForm, address } = useStyles()
   function sendEmail(e) {
     e.preventDefault()
 
@@ -43,13 +50,13 @@ const Contact = () => {
     <Layout>
       <Seo title="Contact" />
       <Container className={contactWrap}>
-        <Grid xs={12} lg={3} sm={6}>
+        <Grid xs={12} lg={6} sm={6} className={address}>
           <h3>Bruxelles</h3>
           <p>On the road down</p>
           <p>221</p>
           <p>SE6 1NH</p>
         </Grid>
-        <Grid xs={12} lg={3} sm={6}>
+        <Grid xs={12} lg={6} sm={6} className={address}>
           <form onSubmit={sendEmail} className={contactForm}>
             {/* <input type="hidden" name="contact_number" /> */}
             <label htmlFor="user_name">Name</label>
@@ -58,7 +65,7 @@ const Contact = () => {
             <input type="email" name="user_email" required />
             <label htmlFor="message">Message</label>
             <textarea name="message" />
-            <input type="submit" value="Send" />
+            <input type="submit" value="Send" style={{ marginTop: 10 }} />
           </form>
         </Grid>
       </Container>
