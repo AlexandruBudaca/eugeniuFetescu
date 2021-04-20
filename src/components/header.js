@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import {
   AppBar,
   Toolbar,
-  Typography,
   makeStyles,
   IconButton,
   Drawer,
@@ -11,7 +10,7 @@ import {
   Container,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
-
+import logoHeader from "../images/gatsby-icon.png"
 import { Link as RouterLink } from "gatsby"
 
 const headersData = [
@@ -37,7 +36,7 @@ const headersData = [
   },
 ]
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   header: {
     backgroundColor: "white",
     paddingLeft: 70,
@@ -48,12 +47,6 @@ const useStyles = makeStyles(() => ({
     },
     height: 60,
   },
-  logo: {
-    fontFamily: "Work Sans, sans-serif",
-    fontWeight: 600,
-    color: "grey",
-    textAlign: "left",
-  },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
     fontWeight: 300,
@@ -62,6 +55,14 @@ const useStyles = makeStyles(() => ({
     color: "grey",
     textDecoration: "none",
     "&:hover": { color: "black" },
+  },
+  logo: {
+    width: "40px",
+    marginTop: "20px",
+    float: "right",
+    [theme.breakpoints.down("sm")]: {
+      width: "30px",
+    },
   },
   toolbar: {
     display: "flex",
@@ -73,7 +74,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Header = () => {
-  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles()
+  const { header, menuButton, toolbar, drawerContainer, logo } = useStyles()
 
   const [state, setState] = useState({
     mobileView: false,
@@ -114,7 +115,7 @@ const Header = () => {
         <IconButton
           {...{
             edge: "start",
-            color: "grey",
+            color: "primary",
             "aria-label": "menu",
             "aria-haspopup": "true",
             onClick: handleDrawerOpen,
@@ -158,9 +159,7 @@ const Header = () => {
 
   const Logo = (
     <Link to="/" style={{ textDecoration: "none" }}>
-      <Typography variant="h6" component="h1" className={logo}>
-        Eugeniu Fetescu
-      </Typography>
+      <img src={logoHeader} alt="logo" className={logo} />
     </Link>
   )
 
@@ -192,9 +191,7 @@ const Header = () => {
           <AppBar className={header} style={{ boxShadow: "none" }}>
             {mobileView ? displayMobile() : displayDesktop()}
           </AppBar>
-        ) : (
-          <p>loading...</p>
-        )}
+        ) : null}
       </Container>
     </header>
   )

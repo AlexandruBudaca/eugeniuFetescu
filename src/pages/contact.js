@@ -46,6 +46,11 @@ const Contact = () => {
         }
       )
   }
+  //   value={this.state.text}
+  // onChange={event => this.setState({ text: event.target.value })}
+  // error={text === ""}
+  // helperText={text === "" ? 'Empty!' : ' '}
+
   return (
     <Layout>
       <Seo title="Contact" />

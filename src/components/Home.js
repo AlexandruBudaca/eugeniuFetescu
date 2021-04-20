@@ -2,6 +2,7 @@ import React from "react"
 import Image from "./HomeImages"
 import { Link } from "gatsby"
 import { makeStyles, Container, Typography } from "@material-ui/core"
+import CarouselMobile from "./Carousel"
 
 const Home = () => {
   const useStyles = makeStyles(() => ({
@@ -36,7 +37,12 @@ const Home = () => {
   return (
     <Container maxWidth="lg" className={homeContainer}>
       <Typography component="div" className={homeWrap}>
-        <Image />
+        {typeof window !== "undefined" && window.innerWidth > 900 ? (
+          <Image />
+        ) : (
+          <CarouselMobile />
+        )}
+
         <div style={{ paddingTop: "3rem" }}>
           <Link to="/howToOrder" className={homeBtn}>
             How to order

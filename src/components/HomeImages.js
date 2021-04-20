@@ -7,14 +7,13 @@ const useStyles = makeStyles(theme => ({
   imageDown: {
     width: "170px",
     height: "450px",
-    marginRight: "50px",
     marginBottom: "20px",
     "&:hover": { transform: "translateY(40px)" },
   },
   imageUp: {
     width: "170px",
     height: "450px",
-    marginRight: "50px",
+    margin: "0px 50px",
     marginTop: "40px",
     "&:hover": { transform: "translateY(-40px)" },
   },
