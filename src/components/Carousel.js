@@ -26,12 +26,16 @@ const CarouselMobile = props => {
     }
   `)
   return (
-    <Carousel fullHeightHover={false} indicators={false}>
+    <Carousel
+      fullHeightHover={false}
+      indicators={false}
+      style={{ width: "100vw", height: "60vh" }}
+    >
       {data.allFile.edges.map(edge => (
-        <div key={edge.node.id} style={{ width: "100vw", height: "100vh" }}>
+        <div key={edge.node.id}>
           <Img
             fluid={edge.node.childImageSharp.fluid}
-            style={{ width: "100vw", height: "100vh" }}
+            style={{ width: "100vw", height: "80vh" }}
           />
         </div>
       ))}

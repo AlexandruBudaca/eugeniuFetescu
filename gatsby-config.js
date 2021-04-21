@@ -26,7 +26,7 @@ module.exports = {
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/logo_mafia_white.png`,
       },
     },
     `gatsby-transformer-sharp`,

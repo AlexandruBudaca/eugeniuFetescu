@@ -78,11 +78,13 @@ const HowToOrder = () => {
       <Container
         style={{
           textAlign: "center",
-          backgroundColor: "grey",
-          color: "white",
+          border: "1px solid red",
+          color: "grey",
         }}
       >
-        Scriem aici ce trebuie mai incolo
+        To order please feel free to contact me via email,or any social media
+        links that you will find in contact rubric and I´ll write or call you
+        back as soon as possible to discuss all the details.
       </Container>
     </Layout>
   )

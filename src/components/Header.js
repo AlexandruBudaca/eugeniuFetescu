@@ -10,7 +10,7 @@ import {
   Container,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
-import logoHeader from "../images/gatsby-icon.png"
+import logoHeader from "../images/logo_mafia.png"
 import { Link as RouterLink } from "gatsby"
 
 const headersData = [
@@ -57,16 +57,22 @@ const useStyles = makeStyles(theme => ({
     "&:hover": { color: "black" },
   },
   logo: {
-    width: "40px",
-    marginTop: "20px",
-    float: "right",
+    width: "70px",
+    marginTop: "50px",
     [theme.breakpoints.down("sm")]: {
-      width: "30px",
+      width: "50px",
+      marginTop: "30px",
     },
   },
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
+  },
+  toolbarMobile: {
+    left: "40px",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "space-between",
+    },
   },
   drawerContainer: {
     padding: "20px 30px",
@@ -74,7 +80,14 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Header = () => {
-  const { header, menuButton, toolbar, drawerContainer, logo } = useStyles()
+  const {
+    header,
+    menuButton,
+    toolbar,
+    drawerContainer,
+    logo,
+    toolbarMobile,
+  } = useStyles()
 
   const [state, setState] = useState({
     mobileView: false,
@@ -111,7 +124,7 @@ const Header = () => {
       setState(prevState => ({ ...prevState, drawerOpen: false }))
 
     return (
-      <Toolbar>
+      <Toolbar className={toolbarMobile}>
         <IconButton
           {...{
             edge: "start",

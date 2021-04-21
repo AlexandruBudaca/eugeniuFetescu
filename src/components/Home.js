@@ -5,7 +5,7 @@ import { makeStyles, Container, Typography } from "@material-ui/core"
 import CarouselMobile from "./Carousel"
 
 const Home = () => {
-  const useStyles = makeStyles(() => ({
+  const useStyles = makeStyles(theme => ({
     homeBtn: {
       border: "2px solid black",
       textDecoration: "none",
@@ -25,6 +25,9 @@ const Home = () => {
     },
     homeWrap: {
       height: "90vh",
+      [theme.breakpoints.down("sm")]: {
+        height: "85vh",
+      },
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
