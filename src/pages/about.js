@@ -2,7 +2,8 @@ import React from "react"
 import { Container, makeStyles } from "@material-ui/core"
 import Layout from "../components/layout"
 import Seo from "../components/Seo"
-import pic from "../images/meAbout.jpg"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   aboutWrap: {
@@ -29,9 +30,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
   aboutImage: {
-    height: 500,
+    height: 450,
+    width: 450,
     [theme.breakpoints.down("sm")]: {
       height: 300,
+      width: 300,
     },
     borderRadius: "100%",
   },
@@ -39,6 +42,18 @@ const useStyles = makeStyles(theme => ({
 
 const About = () => {
   const { aboutWrap, aboutText, aboutImage } = useStyles()
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "meAbout.jpg" }) {
+        childImageSharp {
+          id
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <Layout>
       <Seo title="About" />
@@ -60,9 +75,8 @@ const About = () => {
               materials to ensure longevity.
             </p>
           </div>
-          <div>
-            <img src={pic} alt="some" className={aboutImage} />
-          </div>
+
+          <Img fluid={data.file.childImageSharp.fluid} className={aboutImage} />
         </div>
       </Container>
     </Layout>

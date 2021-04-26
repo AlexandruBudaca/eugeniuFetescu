@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   homeWrap: {
     height: "90vh",
     [theme.breakpoints.down("sm")]: {
-      height: "65vh",
+      height: "75vh",
     },
     display: "flex",
     flexDirection: "column",
