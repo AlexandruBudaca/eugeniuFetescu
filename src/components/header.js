@@ -128,7 +128,6 @@ const Header = () => {
         <IconButton
           {...{
             edge: "start",
-            color: "primary",
             "aria-label": "menu",
             "aria-haspopup": "true",
             onClick: handleDrawerOpen,
@@ -204,7 +203,9 @@ const Header = () => {
           <AppBar className={header} style={{ boxShadow: "none" }}>
             {mobileView ? displayMobile() : displayDesktop()}
           </AppBar>
-        ) : null}
+        ) : (
+          ""
+        )}
       </Container>
     </header>
   )
