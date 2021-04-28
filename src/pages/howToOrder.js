@@ -199,6 +199,29 @@ export default function HowToOrder() {
               </div>
             </AccordionDetails>
           </Accordion>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography className={classes.heading}>Delivery</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className={classes.contentTab}>
+                <p>
+                  Once the portrait is finished it is sprayed with a
+                  professional Pastel Fixative that will preserve the painting
+                  for the years to come.
+                </p>
+                <p>
+                  Then it is well protected for the shipping, and sent by Mail.
+                  It usually takes a week to cross the world. It can also be
+                  sent with FedEx with an additional extra payment.
+                </p>{" "}
+              </div>
+            </AccordionDetails>
+          </Accordion>
         </div>
         <Container
           style={{

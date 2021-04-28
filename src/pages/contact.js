@@ -63,7 +63,6 @@ const Contact = () => {
         </Grid>
         <Grid xs={12} lg={6} sm={6} className={address}>
           <form onSubmit={sendEmail} className={contactForm}>
-            {/* <input type="hidden" name="contact_number" /> */}
             <label htmlFor="user_name">Name</label>
             <input type="text" name="user_name" required />
             <label htmlFor="user_email">Email</label>
