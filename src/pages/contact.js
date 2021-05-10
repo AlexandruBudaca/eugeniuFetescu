@@ -1,8 +1,10 @@
 import React from "react"
-import emailjs from "emailjs-com"
 import Layout from "../components/layout"
 import Seo from "../components/Seo"
 import { makeStyles, Container, Grid } from "@material-ui/core"
+import { useFormControls } from "../components/contactControls"
+import { Button, TextField } from "@material-ui/core"
+import SimpleBackdrop from "../components/backdrop"
 
 const useStyles = makeStyles(theme => ({
   contactWrap: {
@@ -20,56 +22,94 @@ const useStyles = makeStyles(theme => ({
   },
   contactForm: {
     display: "flex",
-    flexDirection: "column",
+    width: "100%",
+    justifyContent: "center",
+    paddingTop: 20,
   },
   address: {
     flexBasis: "100%",
+    paddingTop: 0,
     [theme.breakpoints.down("sm")]: {
       flexBasis: 0,
+      paddingTop: 30,
     },
   },
 }))
 
 const Contact = () => {
   const { contactWrap, contactForm, address } = useStyles()
-  function sendEmail(e) {
-    e.preventDefault()
 
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
-      .then(
-        result => {
-          console.log(result.text)
-        },
-        error => {
-          console.log(error.text)
-        }
-      )
-  }
-  //   value={this.state.text}
-  // onChange={event => this.setState({ text: event.target.value })}
-  // error={text === ""}
-  // helperText={text === "" ? 'Empty!' : ' '}
+  const inputFieldValues = [
+    {
+      name: "fullName",
+      label: "Full Name",
+      id: "my-name",
+    },
+    {
+      name: "email",
+      label: "Email",
+      id: "my-email",
+    },
+    {
+      name: "message",
+      label: "Message",
+      id: "my-message",
+      multiline: true,
+      rows: 10,
+    },
+  ]
+  const {
+    values,
+    handleInputValue,
+    handleFormSubmit,
+    formIsValid,
+    errors,
+    message,
+    setMessage,
+  } = useFormControls()
 
   return (
     <Layout>
       <Seo title="Contact" />
       <Container className={contactWrap}>
-        <Grid xs={12} lg={6} sm={6} className={address}>
+        <SimpleBackdrop open={message} setMessage={setMessage} />
+        <Grid item xs={12} lg={6} sm={6} className={address}>
           <h3>Bruxelles</h3>
-          <p>On the road down</p>
-          <p>221</p>
-          <p>SE6 1NH</p>
+          <p>Belgium</p>
+          <p>efetescu@gmail.com</p>
         </Grid>
-        <Grid xs={12} lg={6} sm={6} className={address}>
-          <form onSubmit={sendEmail} className={contactForm}>
-            <label htmlFor="user_name">Name</label>
-            <input type="text" name="user_name" required />
-            <label htmlFor="user_email">Email</label>
-            <input type="email" name="user_email" required />
-            <label htmlFor="message">Message</label>
-            <textarea name="message" />
-            <input type="submit" value="Send" style={{ marginTop: 10 }} />
+        <Grid item xs={12} lg={6} sm={6} className={address}>
+          <form autoComplete="off" onSubmit={handleFormSubmit}>
+            {inputFieldValues.map((inputFieldValue, index) => {
+              return (
+                <TextField
+                  key={values.success + `${index}`}
+                  onChange={handleInputValue}
+                  onBlur={handleInputValue}
+                  name={inputFieldValue.name}
+                  label={inputFieldValue.label}
+                  error={errors[inputFieldValue.name]}
+                  multiline={inputFieldValue.multiline ?? false}
+                  fullWidth
+                  rows={inputFieldValue.rows ?? 1}
+                  autoComplete="none"
+                  {...(errors[inputFieldValue.name] && {
+                    error: true,
+                    helperText: errors[inputFieldValue.name],
+                  })}
+                />
+              )
+            })}
+            <div className={contactForm}>
+              <Button
+                variant="contained"
+                type="submit"
+                color="secondary"
+                disabled={!formIsValid()}
+              >
+                Send Message
+              </Button>
+            </div>
           </form>
         </Grid>
       </Container>

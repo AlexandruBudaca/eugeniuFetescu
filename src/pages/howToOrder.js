@@ -167,10 +167,65 @@ export default function HowToOrder() {
               <div className={classes.contentTab}>
                 <p>
                   Each portrait is different and requires a different approach,
-                  amount of work, size, medium, etc. This is why there is no
-                  fixed price list.
+                  amount of work, size, medium, etc.
                 </p>
-                <p>All commissions are priced individually.</p>
+                Black&White:
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: 20,
+                  }}
+                >
+                  <ul>
+                    <p>A4:</p>
+                    <li>21/29,7cm - 41 €</li>
+                    <li>20/30cm - 41 €</li>
+                    <li>28/35cm - 41€</li>
+                  </ul>
+                  <ul style={{ paddingLeft: 30 }}>
+                    <p>A3:</p>
+                    <li>29,7/42cm- 51 €</li>
+                    <li>30/40cm - 51 €</li>
+                    <li>28/43cm - 51€</li>
+                  </ul>
+                </div>
+                Colour (soft pastels):
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: 20,
+                  }}
+                >
+                  <ul>
+                    <p>A4:</p>
+                    <li>21/29,7cm - 51 €</li>
+                    <li>20/30cm - 51 €</li>
+                  </ul>
+                </div>
+                Picture:
+                <div
+                  style={{
+                    display: "flex",
+                    marginTop: 20,
+                  }}
+                >
+                  <ul>
+                    <p style={{ color: "transparent" }}>A4</p>
+                    <li> 28/35 cm - 51€ </li>
+                    <li>50/70 cm - 71€</li>
+                  </ul>
+                  <ul style={{ paddingLeft: 30 }}>
+                    <p>A3:</p>
+                    <li>29,7/42cm - 61 €</li>
+                    <li>30/40cm - 61 €</li>
+                    <li>28/43cm - 61 €</li>
+                  </ul>
+                </div>
+                <p>
+                  All other dimensions,black and white or colour, to discuss.
+                </p>
                 <p>
                   Please feel free to send me the pictures you are considering
                   and I´ll write you back as soon as possible to give you a
@@ -195,6 +250,9 @@ export default function HowToOrder() {
                   stunning painting your family will treasure forever. I use
                   high quality archival materials ensuring that your painting
                   will last for many lifetimes.
+                </p>
+                <p style={{ color: "red" }}>
+                  The shipping is not included in the price.
                 </p>
               </div>
             </AccordionDetails>
