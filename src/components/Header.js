@@ -170,9 +170,9 @@ const Header = () => {
   }
 
   const Logo = (
-    <Link to="/" style={{ textDecoration: "none" }}>
+    <a href="/" style={{ textDecoration: "none" }}>
       <img src={logoHeader} alt="logo" className={logo} />
-    </Link>
+    </a>
   )
 
   const getMenuButtons = () => {
