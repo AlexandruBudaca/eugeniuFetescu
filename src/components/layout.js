@@ -97,14 +97,18 @@ const Layout = ({ children }) => {
                 <FacebookIcon />
               </a>
               <a
-                href="https://material-ui.com/components/material-icons/#material-icons"
+                href="https://www.instagram.com/eugeniufetescu/"
+                target="_blank"
+                rel="noreferrer"
                 className={footerA}
               >
                 <InstagramIcon />
               </a>
               <a
-                href="https://material-ui.com/components/material-icons/#material-icons"
+                href="https://www.youtube.com/channel/UCNfQ-Jaw_Bnn_zBXaQqoNsA"
                 className={footerA}
+                target="_blank"
+                rel="noreferrer"
               >
                 <YouTubeIcon />
               </a>

@@ -30,7 +30,10 @@ export const useFormControls = () => {
           }
         },
         error => {
-          if (error) errorCallback()
+          if (error) {
+            errorCallback()
+            setMessage(!message)
+          }
         }
       )
   }

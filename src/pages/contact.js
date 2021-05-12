@@ -72,7 +72,11 @@ const Contact = () => {
     <Layout>
       <Seo title="Contact" />
       <Container className={contactWrap}>
-        <SimpleBackdrop open={message} setMessage={setMessage} />
+        <SimpleBackdrop
+          open={message}
+          setMessage={setMessage}
+          message={values.success}
+        />
         <Grid item xs={12} lg={6} sm={6} className={address}>
           <h3>Bruxelles</h3>
           <p>Belgium</p>

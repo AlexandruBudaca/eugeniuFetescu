@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SimpleBackdrop({ open, setMessage }) {
+export default function SimpleBackdrop({ open, setMessage, message }) {
   const classes = useStyles()
 
   const handleClose = () => {
@@ -18,9 +18,49 @@ export default function SimpleBackdrop({ open, setMessage }) {
 
   return (
     <div>
-      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <div style={{ backgroundColor: "green" }}>Close</div>
-      </Backdrop>
+      {message ? (
+        <Backdrop
+          className={classes.backdrop}
+          open={open}
+          onClick={handleClose}
+        >
+          <div
+            style={{
+              backgroundColor: "green",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              height: 100,
+              textAlign: "center",
+            }}
+          >
+            <h3 style={{ margin: 0 }}>
+              Your message was successfully send! Thank you!
+            </h3>
+          </div>
+        </Backdrop>
+      ) : (
+        <Backdrop
+          className={classes.backdrop}
+          open={open}
+          onClick={handleClose}
+        >
+          <div
+            style={{
+              backgroundColor: "red",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              height: 100,
+              textAlign: "center",
+            }}
+          >
+            <h3 style={{ margin: 0 }}>Something went wrong! Thank you!</h3>
+          </div>
+        </Backdrop>
+      )}
     </div>
   )
 }
