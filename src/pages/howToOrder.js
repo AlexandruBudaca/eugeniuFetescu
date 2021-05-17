@@ -44,7 +44,7 @@ export default function HowToOrder() {
 
   return (
     <Layout>
-      <Seo title="About" />
+      <Seo title="How to order" />
       <Container className={classes.wrap}>
         <h3>How to order</h3>
         <div className={classes.containerAccordion}>
@@ -119,48 +119,6 @@ export default function HowToOrder() {
               aria-controls="panel2a-content"
               id="panel2a-header"
             >
-              <Typography className={classes.heading}>Size</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <div className={classes.contentTab}>
-                <p>
-                  Every portrait needs its own space and each project is
-                  different.
-                </p>
-                <p>
-                  Depending on the composition, which is usually determined by
-                  the picture to work from, I choose the portrait format size.
-                  Sometimes the model´s expression requires more space around or
-                  the contrary. Same thing happens with figures and subject´s
-                  poses. I generally use two standard sizes for pastel portrait.{" "}
-                </p>
-                <p>
-                  Carre (Square) format for Head and Shoulders in 19 x 19 inches
-                  approximately and Standard Classic size for half body, in 19 x
-                  25 inches. The larger standard size I use is 29.5 x 42 inches,
-                  usually applied to Full body portrait. If you need a special
-                  size you should let me know in advance.
-                </p>{" "}
-                <div>
-                  For Oil Portrait paintings sizes are much more extensive and
-                  varied. The most common standard sizes are as follows;
-                  25.5×21.2 “(65×54 cm) and 32×25.5” (81 x 65 cm).
-                  <p>
-                    {" "}
-                    In both cases, if you need a concrete or different size
-                    please notify me in advance. I’ll do the same if I think
-                    that your picture requires it.
-                  </p>
-                </div>
-              </div>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel2a-content"
-              id="panel2a-header"
-            >
               <Typography className={classes.heading}>Pricing</Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -169,7 +127,7 @@ export default function HowToOrder() {
                   Each portrait is different and requires a different approach,
                   amount of work, size, medium, etc.
                 </p>
-                Black&White:
+                Black&White - Charcoal or Graphite (Client’s Choise) :
                 <div
                   style={{
                     display: "flex",
@@ -204,27 +162,8 @@ export default function HowToOrder() {
                     <li>20/30cm - 51€</li>
                   </ul>
                 </div>
-                Picture:
-                <div
-                  style={{
-                    display: "flex",
-                    marginTop: 20,
-                  }}
-                >
-                  <ul>
-                    <p style={{ color: "transparent" }}>A4</p>
-                    <li> 28/35 cm - 51€ </li>
-                    <li>50/70 cm - 71€</li>
-                  </ul>
-                  <ul style={{ paddingLeft: 30 }}>
-                    <p>A3:</p>
-                    <li>29,7/42cm - 61€</li>
-                    <li>30/40cm - 61€</li>
-                    <li>28/43cm - 61€</li>
-                  </ul>
-                </div>
                 <p>
-                  All other dimensions,black and white or colour, to discuss.
+                  All other dimensions, black and white or colour, to discuss.
                 </p>
                 <p>
                   Please feel free to send me the pictures you are considering

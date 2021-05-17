@@ -14,6 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
+  background-color: antiquewhite;
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;

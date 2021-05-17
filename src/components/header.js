@@ -38,12 +38,12 @@ const headersData = [
 
 const useStyles = makeStyles(theme => ({
   header: {
-    backgroundColor: "white",
+    backgroundColor: "antiquewhite",
     paddingLeft: 70,
     paddingRight: 70,
     "@media (max-width: 900px)": {
       paddingLeft: 0,
-      backgroundColor: "white",
+      backgroundColor: "antiquewhite",
     },
     height: 60,
   },
@@ -76,6 +76,10 @@ const useStyles = makeStyles(theme => ({
   },
   drawerContainer: {
     padding: "20px 30px",
+    backgroundColor: "antiquewhite",
+  },
+  paperDrawer: {
+    background: "antiquewhite",
   },
 }))
 
@@ -87,6 +91,7 @@ const Header = () => {
     drawerContainer,
     logo,
     toolbarMobile,
+    paperDrawer,
   } = useStyles()
 
   const [state, setState] = useState({
@@ -142,6 +147,7 @@ const Header = () => {
             open: drawerOpen,
             onClose: handleDrawerClose,
           }}
+          classes={{ paper: paperDrawer }}
         >
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
