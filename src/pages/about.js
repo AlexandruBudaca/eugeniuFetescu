@@ -63,8 +63,8 @@ const About = () => {
             <h3>About me</h3>
             <p>
               My name is Eugen Fetescu. I’m a Roumanian artist based in
-              Brussels., I love art. My basic profession is acting,but as long
-              as i remember I was also passionate about the fine arts.From a
+              Brussels. I love art. My basic profession is acting, but as long
+              as i remember I was also passionate about the fine arts. From a
               very young age I enjoyed drawing, animals, birds and celebrities.
               Creating life on paper is my passion.I like to use all the dry
               mediums in my art, such as graphite pencils or charcoal for
