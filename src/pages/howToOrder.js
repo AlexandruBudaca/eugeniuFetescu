@@ -153,6 +153,7 @@ export default function HowToOrder() {
                   style={{
                     display: "flex",
                     alignItems: "center",
+                    flexWrap: "wrap",
                     marginTop: 20,
                   }}
                 >
@@ -160,6 +161,14 @@ export default function HowToOrder() {
                     <p>A4:</p>
                     <li>21/29,7cm - 51€</li>
                     <li>20/30cm - 51€</li>
+                    <li>28/35cm - 51€</li>
+                  </ul>
+                  <ul style={{ paddingLeft: 30 }}>
+                    <p>A3:</p>
+                    <li>29,7/42cm - 61€</li>
+                    <li>30/40cm - 61€</li>
+                    <li>28/43cm - 61€</li>
+                    <li>50/70cm - 71€</li>
                   </ul>
                 </div>
                 <p>
