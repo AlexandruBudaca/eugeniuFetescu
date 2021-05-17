@@ -62,9 +62,9 @@ export default function HowToOrder() {
                   It is important that you select good quality photos. There are
                   several things to consider when you select your picture for a
                   portrait. Avoid very small photos. Avoid the unfocussed
-                  subjects. The larger the image size is better. A good
-                  lightning on the subject will be nice. Don’t worry about the
-                  background. It can be changed.
+                  subjects. The larger the image size is better. Good lightning
+                  on the subject is ideal. Don’t worry about the background. It
+                  can be changed.
                 </p>
                 <div>
                   The photo is very important! In order to get a good portrait I
@@ -73,17 +73,17 @@ export default function HowToOrder() {
                   <p>
                     There are several things to consider when you select the
                     pictures for the portrait. Even that today almost everybody
-                    can take nice pictures from their cell phones; professional
-                    photos are (almost) always the best option…{" "}
+                    can take nice pictures from their mobile phones;
+                    professional photos are (almost) always the best option…{" "}
                   </p>{" "}
                   <p>
-                    {" "}
-                    If you can get a professional photographer half of the work
-                    is done! In any case here are some tips: It is important
-                    that you select good photos, images that will evoke
-                    something special to you. Not always the “deep smile” in the
-                    picture is good for a portrait! Also It´s not always
-                    required a direct look to the camera.{" "}
+                    If you can get a professional photographer, half of the work
+                    is done! In any case, here are some tips. It is important
+                    that you select good photos; images that will evoke
+                    something special to you. A big smile is not always the best
+                    look if you’re capturing your photo for a good portrait!
+                    Also, It's not always required to look directly at the
+                    camera.
                   </p>
                   <p>
                     {" "}
@@ -102,9 +102,9 @@ export default function HowToOrder() {
                     work and the other don´t…
                   </p>
                   <p>
-                    In the case of double portraits different subjects from
-                    different images can sometimes be combined in a single
-                    painting, but of course it is much better to work from one
+                    It is possible to have double portraits, where different
+                    subjects from different images are combined in a single
+                    painting. But of course it is much better to work from one
                     good single image.
                   </p>
                   Don’t hesitate to contact me for any questions! I’ll be glad

@@ -62,17 +62,17 @@ const About = () => {
           <div className={aboutText}>
             <h3>About me</h3>
             <p>
-              My name is Eugen Fetescu. I’m a Roumanian artist based in
-              Brussels. I love art. My basic profession is acting, but as long
-              as i remember I was also passionate about the fine arts. From a
-              very young age I enjoyed drawing, animals, birds and celebrities.
-              Creating life on paper is my passion.I like to use all the dry
-              mediums in my art, such as graphite pencils or charcoal for
-              monochrome drawings or soft pastels and pastel pencils for the
-              colored ones. Love to paint, Portraits, Pet Portraits. I create
-              original drawings, and welcome the challenges of creating that
-              special unique piece of custom artwork. I use top quality
-              materials to ensure longevity.
+              My name is Eugen Fetescu. I’m a Roumanian artist based in Brussels
+              and I love art. I originally trained as an actor, but
+              soon/gradually realised I also had a deep passion for fine art.
+              From a very young age I enjoyed drawing, animals, birds and
+              celebrities. Creating life on paper is my passion. I use all the
+              dry mediums in my art, from graphite pencils and charcoal for
+              monochrome drawings to soft pastels and pastel pencils for the
+              colored ones. I love to paint portraits of people as well as pet
+              portraits, using top quality materials to ensure longevity. I
+              create original drawings, and welcome new challenges to create
+              unique custom artwork.
             </p>
           </div>
 
