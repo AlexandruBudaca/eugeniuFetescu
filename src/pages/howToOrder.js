@@ -213,8 +213,7 @@ export default function HowToOrder() {
                 </p>
                 <p>
                   Then it is well protected for the shipping, and sent by Mail.
-                  It usually takes a week to cross the world. It can also be
-                  sent with FedEx with an additional extra payment.
+                  It usually takes a week to cross the world.
                 </p>{" "}
               </div>
             </AccordionDetails>
