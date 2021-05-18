@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: 0,
       backgroundColor: "antiquewhite",
     },
-    height: 60,
+    height: 70,
   },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
@@ -58,11 +58,13 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     width: "70px",
-    marginTop: "50px",
+    marginTop: "40px",
     [theme.breakpoints.down("sm")]: {
       width: "50px",
       marginTop: "30px",
+      padding: 5,
     },
+    padding: 5,
   },
   toolbar: {
     display: "flex",
