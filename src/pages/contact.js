@@ -5,6 +5,7 @@ import { makeStyles, Container, Grid } from "@material-ui/core"
 import { useFormControls } from "../components/contactControls"
 import { Button, TextField } from "@material-ui/core"
 import SimpleBackdrop from "../components/backdrop"
+import Recaptcha from "react-google-invisible-recaptcha"
 
 const useStyles = makeStyles(theme => ({
   contactWrap: {
@@ -66,7 +67,10 @@ const Contact = () => {
     errors,
     message,
     setMessage,
+    recaptchaRef,
   } = useFormControls()
+
+  console.log(process.env.GATSBY_YOUR_SITE_KEY)
 
   return (
     <Layout>
@@ -82,6 +86,7 @@ const Contact = () => {
           <p>Belgium</p>
           <p>efetescu@gmail.com</p>
         </Grid>
+
         <Grid item xs={12} lg={6} sm={6} className={address}>
           <form autoComplete="off" onSubmit={handleFormSubmit}>
             {inputFieldValues.map((inputFieldValue, index) => {
@@ -116,6 +121,11 @@ const Contact = () => {
             </div>
           </form>
         </Grid>
+        <Recaptcha
+          ref={recaptchaRef}
+          sitekey={process.env.GATSBY_YOUR_SITE_KEY}
+          onResolved={() => console.log("Human detected.")}
+        />
       </Container>
     </Layout>
   )

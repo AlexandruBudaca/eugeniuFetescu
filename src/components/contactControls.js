@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react"
 import emailjs from "emailjs-com"
 
@@ -13,6 +14,7 @@ export const useFormControls = () => {
   const [values, setValues] = useState(initialFormValues)
   const [errors, setErrors] = useState({})
   const [message, setMessage] = useState(false)
+  const recaptchaRef = React.useRef({})
 
   const PostContactForm = async (e, successCallback, errorCallback) => {
     emailjs
@@ -27,6 +29,7 @@ export const useFormControls = () => {
           if (result.status === 200) {
             successCallback()
             setMessage(!message)
+            recaptchaRef.current.execute()
           }
         },
         error => {
@@ -112,5 +115,6 @@ export const useFormControls = () => {
     formIsValid,
     message,
     setMessage,
+    recaptchaRef,
   }
 }
