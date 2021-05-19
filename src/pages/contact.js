@@ -69,9 +69,6 @@ const Contact = () => {
     setMessage,
     recaptchaRef,
   } = useFormControls()
-
-  console.log(process.env.GATSBY_YOUR_SITE_KEY)
-
   return (
     <Layout>
       <Seo title="Contact" />
