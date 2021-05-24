@@ -59,61 +59,61 @@ export default function HowToOrder() {
             <AccordionDetails>
               <div className={classes.contentTab}>
                 <div>
-                  It is important for you to select good quality photos. There
-                  are several things to consider when you select the picture for
-                  a portrait:
-                  <p></p>
-                  <p>°Avoid very small photos.</p>
-                  <p>°Avoid the unfocused subjects.</p>
-                  <p>°The larger the image size, the better! </p>
-                  <p>°Good lightning on the subject is ideal.</p>
-                  <p>°Don’t worry about the background. It can be changed.</p>
+                  There are several things to consider when you select your
+                  picture for a portrait.
+                  <br />
+                  It is important that the selected photos are of good quality
+                  and that you avoid very small photos, as well as unfocussed
+                  subjects. The larger the image size, the better.
+                  <br />
+                  Good lightning on the subject is ideal.
+                  <br />
+                  Don’t worry about the background. It can be changed.
                 </div>
                 <div>
-                  The photo is very important! In order to get a good portrait,
-                  I need good pictures. Just consider that the photo will be my
-                  guide and my only reference through the whole process.
-                  <p>
-                    There are several things to consider when you select the
-                    pictures for a portrait. Even though today almost anyone can
-                    take nice pictures using their mobile phones, professional
-                    photos are always a better option.
-                  </p>{" "}
+                  <br />
+                  Please remember that the photo is very important! In order to
+                  get a great portrait, I need great pictures. Just consider
+                  that the photo will be my guide and my only reference through
+                  the process.
+                  <br />
+                  Even though today almost everybody can take nice pictures with
+                  their mobile phones; professional photos are (almost) always
+                  the best option.
+                  <br />
+                  If you can get a professional photographer, half of the work
+                  is done!
                   <div>
-                    If you can get a professional photographer, half of the work
-                    is already done! In any case, here are some tips:
+                    <br />
+                    In any case, here are some tips:
                     <p></p>
-                    <p>°It is important that you select good quality photos</p>
                     <p>
-                      °Select images that will evoke something special to you.{" "}
+                      °It is of course important that you select good quality
+                      photos, but also images that will evoke something special
+                      to you. A big smile is not always the best look if you’re
+                      capturing your photo for a portrait! Also, one is not
+                      necessarily required to look directly at the camera.
                     </p>
                     <p>
-                      °A big smile is not always the only option for a good look
-                      and the best result for a quality portrait
+                      °A good portrait is based on good photos, therefore not
+                      any photo should be used for a portrait. The expression,
+                      the eyes, the pose, the light…everything counts..
                     </p>
-                    <p>
-                      °It's not always required to look directly at the camera.
-                    </p>
-                    <p>
-                      °The expression, the eyes, the pose, the light should are
-                      incredibly important for a good result
-                    </p>
-                    <p>°The larger the image size, better!</p>
                   </div>
                   <p>
                     Feel free to send me your selected photos and we will choose
-                    together the best one for your portrait. I'll take you
-                    through the process and explain to you why one image could
-                    work and another may not.
+                    together the best one for your portrait. I’ll advise you
+                    without compromise and explain to you why one image could
+                    work while others wouldn’t.
                   </p>
                   <p>
                     It is possible to have double portraits, where different
                     subjects from different images are combined in a single
                     painting. But of course it is much better to work from one
-                    quality single image.
+                    good single image.
                   </p>
-                  Don’t hesitate to contact me for any questions! I’ll be glad
-                  to answer them.
+                  Please don’t hesitate to contact me for any further questions!
+                  I’ll gladly clarify your doubts.
                 </div>
               </div>
             </AccordionDetails>
