@@ -66,14 +66,13 @@ const About = () => {
               and I love art. I originally trained as an actor, but I came to
               discover and gradually developed a deep passion for fine art. I
               have enjoyed drawing animals, birds and celebrities from a very
-              young age. My passion consists in creating life on paper. Creating
-              life on paper is my passion. In order to do so, I use a variety of
-              dry mediums, from graphite pencils and charcoal for monochrome
-              drawings to soft pastels and pastel pencils for the colored ones.
-              I love to paint portraits of people as well as pet portraits,
-              using top quality materials in order to ensure longevity. I create
-              original drawings, and welcome new challenges to create unique
-              custom artwork.
+              young age. My passion consists in creating life on paper. In order
+              to do so, I use a variety of dry mediums, from graphite pencils
+              and charcoal for monochrome drawings to soft pastels and pastel
+              pencils for the colored ones. I love to paint portraits of people
+              as well as pet portraits, using top quality materials in order to
+              ensure longevity. I create original drawings, and welcome new
+              challenges to create unique custom artwork.
             </p>
           </div>
 
