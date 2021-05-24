@@ -29,7 +29,6 @@ export const useFormControls = () => {
           if (result.status === 200) {
             successCallback()
             setMessage(!message)
-            recaptchaRef.current.execute()
           }
         },
         error => {
@@ -104,6 +103,7 @@ export const useFormControls = () => {
     const isValid = Object.values(errors).every(x => x === "") && formIsValid()
     if (isValid) {
       await PostContactForm(e, handleSuccess, handleError)
+      recaptchaRef.current.execute()
     }
   }
 
